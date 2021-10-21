@@ -1,11 +1,22 @@
 module.exports = {
-  outputDir: './build',
-  configureWebpack: {
-    resolve: {
-      alias: {
-        components: '@/components'
-      },
-      extensions: ['.jsx', '.ts', '.tsx', '.js', '.scss']
-    }
-  }
+	outputDir: './build',
+	devServer: {
+		proxy: {
+			'^/api': {
+				target: 'http://localhost:8000',
+				pathRewrite: {
+					'^/api': ''
+				},
+				changeOrigin: true
+			}
+		}
+	},
+	configureWebpack: {
+		resolve: {
+			alias: {
+				components: '@/components'
+			},
+			extensions: ['.jsx', '.ts', '.tsx', '.js', '.scss']
+		}
+	}
 }
