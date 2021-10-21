@@ -25,9 +25,9 @@ export default defineComponent({
 	},
 	setup() {
 		const isCollapse = ref(false)
-    return{
-      isCollapse
-    }
+		return {
+			isCollapse
+		}
 	}
 })
 </script>

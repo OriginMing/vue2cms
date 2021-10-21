@@ -29,16 +29,15 @@ const router = createRouter({
 	history: createWebHashHistory()
 })
 router.beforeEach((to) => {
-
-
 	if (to.path != '/login') {
 		const token = localCatch.getCache('token')
 		if (!token) {
 			return '/login'
 		}
-	}if(to.path=='/main'){
-    return firstMenu.url;
-  }
+	}
+	if (to.path == '/main') {
+		return firstMenu.url
+	}
 })
 
 export default router

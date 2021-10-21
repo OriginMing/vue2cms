@@ -1,4 +1,5 @@
-const systemAnalyse = () =>import('@/views/main/system/systemAnalyse/systemAnalyse.vue')
+const systemAnalyse = () =>
+	import('@/views/main/system/systemAnalyse/systemAnalyse.vue')
 export default {
 	path: '/systemOverview/analyse',
 	name: 'analyse',

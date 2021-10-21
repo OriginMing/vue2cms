@@ -11,7 +11,7 @@ export function mapMenusToRoutes(userMenus: any[]): RouteRecordRaw[] {
 		allRoutes.push(route.default)
 	})
 	const _recurseGetRoute = (menus: any) => {
-    console.log(menus);
+		console.log(menus)
 		for (const menu of menus) {
 			if (menu.type == 2) {
 				//代表无子元素直接注册路由
@@ -30,21 +30,17 @@ export function mapMenusToRoutes(userMenus: any[]): RouteRecordRaw[] {
 	return routes
 }
 
-
-export function pathMapToMenu(
-  userMenus: any[],
-  currentPath: string,
-): any {
-  console.log(userMenus);
-  for (const menu of userMenus) {
-    if (menu.type === 1) {
-      const findMenu = pathMapToMenu(menu.children ?? [], currentPath)
-      if (findMenu) {
-        return findMenu
-      }
-    } else if (menu.type === 2 && menu.url === currentPath) {
-      return menu
-    }
-  }
+export function pathMapToMenu(userMenus: any[], currentPath: string): any {
+	console.log(userMenus)
+	for (const menu of userMenus) {
+		if (menu.type === 1) {
+			const findMenu = pathMapToMenu(menu.children ?? [], currentPath)
+			if (findMenu) {
+				return findMenu
+			}
+		} else if (menu.type === 2 && menu.url === currentPath) {
+			return menu
+		}
+	}
 }
 export { firstMenu }

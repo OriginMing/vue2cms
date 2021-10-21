@@ -35,18 +35,17 @@ const loginModule: Module<ILoginState, IRootState> = {
 	actions: {
 		async accountLoginAction({ commit, dispatch }, payload: IAccount) {
 			// 1.实现登录逻辑
-      if(payload){
-      const tokenLocal = localCache.getCache('token')
-        const loginResult = await accountLoginRequest(payload)
-        const { id, token } = loginResult.data
-        commit('changeToken', token)
-        localCache.setCache('token', token)
-      }
+			if (payload) {
+				const tokenLocal = localCache.getCache('token')
+				const loginResult = await accountLoginRequest(payload)
+				const { id, token } = loginResult.data
+				commit('changeToken', token)
+				localCache.setCache('token', token)
+			}
 			const userMenusResult = await getMenuByUser()
 			localCache.setCache('userMenus', userMenusResult.data)
 			commit('changeUserMenus', userMenusResult.data)
 			router.replace('/systemOverview/analyse')
-
 		}
 	}
 }

@@ -27,8 +27,8 @@ export function useStore(): Store<IStoreType> {
 }
 
 export function setupStore() {
-  store.dispatch('login/accountLoginAction')
-  // store.dispatch('getInitialDataAction')
+	store.dispatch('login/accountLoginAction')
+	// store.dispatch('getInitialDataAction')
 }
 
 export default store
